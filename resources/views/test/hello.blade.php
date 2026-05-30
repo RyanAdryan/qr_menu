@@ -1,0 +1,1 @@
+<h1>Hello dari Laravel View</h1>
