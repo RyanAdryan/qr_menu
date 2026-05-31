@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\category;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -18,9 +18,9 @@ class CategoryController extends Controller
         }
         public function store(Request $request)
         {
-        Category::create($request->all());
-        return redirect('/category');
-    }
+            Category::create($request->all());
+            return redirect('/category');
+        }
     // EDIT
     public function edit($id)
     {
