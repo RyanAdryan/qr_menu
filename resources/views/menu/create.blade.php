@@ -7,22 +7,27 @@
 </head>
 <body>
 <h1>Tambah Menu</h1>
-<form action="/menu/store" method="POST">
+<form action="/menu/store" method="POST" enctype="multipart/form-data">
 @csrf
 
+Nama : <input type="text" name="name"><br><br>
+Deskripsi : <input type="text" name="description"><br><br>
+Kategori : 
 <select name="category_id">
         @foreach($categories as $category)
             <option value="{{ $category->id }}">
                 {{ $category->name }}
             </option>
         @endforeach
-</select>
-
-Nama : <input type="text" name="name"><br><br>
-Deskripsi : <input type="text" name="description"><br><br>
+</select><br><br>
 Harga : <input type="text" name="price"><br><br>
-Foto : <input type="text" name="image"><br><br>
-<select name="status">
+<div class="form-group">
+    <label>Gambar Menu</label>
+    <input type="file"
+           name="image"
+           class="form-control">
+</div>
+Status : <select name="status">
         <option value="active">
             Active
         </option>
@@ -30,7 +35,7 @@ Foto : <input type="text" name="image"><br><br>
         <option value="inactive">
             Inactive
         </option>
-    </select>
+    </select><br><br>
 
 <button type="submit">Simpan</button>
 </form>
